@@ -17,32 +17,38 @@ namespace leave_management.Repository
 
         public bool Create(LeaveHistory entity)
         {
-            throw new NotImplementedException();
+            _db.LeaveHistories.Add(entity);
+            return Save();
         }
 
         public bool Delete(LeaveHistory entity)
         {
-            throw new NotImplementedException();
+            _db.LeaveHistories.Remove(entity);
+            return Save();
         }
 
         public ICollection<LeaveHistory> FindAll()
         {
-            throw new NotImplementedException();
+            var history = _db.LeaveHistories.ToList();
+            return history;
         }
 
         public LeaveHistory FindById(int id)
         {
-            throw new NotImplementedException();
+            var history = _db.LeaveHistories.Find(id);
+            return history;
         }
 
         public bool Save()
         {
-            throw new NotImplementedException();
+            var chan = _db.SaveChanges();
+            return chan > 0;
         }
 
         public bool Update(LeaveHistory entity)
         {
-            throw new NotImplementedException();
+            _db.LeaveHistories.Update(entity);
+            return Save();
         }
     }
 }

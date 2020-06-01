@@ -14,6 +14,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using leave_management.Contracts;
 using leave_management.Repository;
+using AutoMapper;
+using leave_management.Mapping;
 
 namespace leave_management
 {
@@ -33,10 +35,13 @@ namespace leave_management
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
 
-            //Add references for Repository and Contracts to Startup file
+            //Saintlaw -- Added references for Repository and Contracts to Startup file
             services.AddScoped<ILeaveTypeRepository, LeaveTypeRepository>();
             services.AddScoped<ILeaveAllocationRepository, LeaveAllocationRepository>();
             services.AddScoped<ILeaveHistoryRepository, LeaveHistoryRepository>();
+
+            //Saintlaw -- Added automapper services 
+            services.AddAutoMapper(typeof(Maps));
 
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
