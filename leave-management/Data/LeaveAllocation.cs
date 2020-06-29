@@ -21,6 +21,7 @@ namespace leave_management.Data
 
         [ForeignKey("LeaveTypeId")]
         public int LeaveTypeId { get; set; }
+        public int Period { get; set; }
 
 
     }

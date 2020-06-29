@@ -43,7 +43,7 @@ namespace leave_management
             //Saintlaw -- Added automapper services 
             services.AddAutoMapper(typeof(Maps));
 
-            services.AddDefaultIdentity<IdentityUser>()
+            services.AddDefaultIdentity<Employee>()
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
@@ -55,7 +55,7 @@ namespace leave_management
         public void Configure(
             IApplicationBuilder app, 
             IWebHostEnvironment env,
-            UserManager<IdentityUser> userManager,
+            UserManager<Employee> Employee,
             RoleManager<IdentityRole> roleManager
             )
         {
@@ -78,7 +78,7 @@ namespace leave_management
             app.UseAuthentication();
             app.UseAuthorization();
 
-            SeedData.Seed(userManager, roleManager);
+            SeedData.Seed(Employee, roleManager);
 
             app.UseEndpoints(endpoints =>
             {
