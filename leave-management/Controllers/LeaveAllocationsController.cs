@@ -17,9 +17,9 @@ namespace leave_management.Controllers
     [Authorize(Roles = "Administrator")]
     public class LeaveAllocationsController : Controller
     {
-        public readonly ILeaveTypeRepository _leaverepo;
-        public readonly ILeaveAllocationRepository _leaveallocationrepo;
-        public readonly IMapper _Mapper;
+        private readonly ILeaveTypeRepository _leaverepo;
+        private readonly ILeaveAllocationRepository _leaveallocationrepo;
+        private readonly IMapper _Mapper;
         private readonly UserManager<Employee> _userManager;
 
         public LeaveAllocationsController(ILeaveTypeRepository leaverepo, ILeaveAllocationRepository leaveallocationrepo, IMapper Mapper, UserManager<Employee> userManager)

@@ -10,8 +10,9 @@ namespace leave_management.Models
     public class LeaveAllocaitionVM
     {
         public int Id { get; set; }
-       
+        [Display(Name = "Number of Days")]
         public int NumberOfDays { get; set; }
+        [Display(Name = "Date Created")]
         public DateTime DateCreated { get; set; }
 
         public EmployeeVM Employee { get; set; }
@@ -46,7 +47,4 @@ namespace leave_management.Models
         public string EmployeeId { get; set; }
         public List<LeaveAllocaitionVM> LeaveAllocaitions { get; set; }
     }
-
-    
-
 }
